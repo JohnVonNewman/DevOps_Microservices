@@ -16,7 +16,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "requirements.txt" }}
-            # fallback to using the latest cache if no exact match is found.
+            # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
       - run:
@@ -40,6 +40,16 @@ jobs:
           command: |
             . venv/bin/activate
             make lint
+      # - run:
+      #       name: Run Tests
+      #       command: |
+      #           source ~/.devops/bin/activate
+      #           make test-junit
+      # - store_test_results:
+      #       path: ~/test-results
+
+      # - store_artifacts:
+      #       path: ~/test-results
 
 workflows:
     main:
