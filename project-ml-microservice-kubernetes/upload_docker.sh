@@ -6,10 +6,14 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
+dockerpath=ducpvudacity/ml-api
 
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
+docker login
+docker tag ml-api $dockerpath:latest
 
 # Step 3:
 # Push image to a docker repository
+docker push $dockerpath:latest
